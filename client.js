@@ -15,7 +15,30 @@ connect = () => {
   });
   conn.on("connect", () => {
     console.log("Successfully connected to game server");
-    conn.write("Name: Ray");
+  });
+  conn.on("connect", () => {
+    let timer = 100;
+    for (let count = 0; count < 20; count++){
+      setTimeout(() => {
+        conn.write("Move: up"), timer}
+        , timer += 50)
+    }
+      // setTimeout(() => {
+      //   conn.write("Move: left");
+      // }, 400)
+      // setTimeout(() => {
+      //   conn.write("Move: up");
+      // }, 600)
+      // setTimeout(() => {
+      //   conn.write("Move: left");
+      // }, 800)
+      // setTimeout(() => {
+      //   conn.write("Move: up");
+      // }, 1000)
+      // setTimeout(() => {
+      //   conn.write("Move: left");
+      // }, 1200)
+
   });
 
   // process.stdin.on('data', (userInput) => {
@@ -23,5 +46,4 @@ connect = () => {
   // })
   return conn;
 };
-
 module.exports = connect;
