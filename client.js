@@ -13,7 +13,14 @@ connect = () => {
   conn.on("data", (data) => {
     console.log("Server says: ", data); //a message sent from the server
   });
+  conn.on("connect", () => {
+    console.log("Successfully connected to game server");
+    conn.write("Name: Ray");
+  });
 
+  // process.stdin.on('data', (userInput) => {
+  //   conn.write(userInput);
+  // })
   return conn;
 };
 
